@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 2px;
+}
+.color-btn {
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  border: 0;
+  background-color: #3abd45;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 15px;
+}
