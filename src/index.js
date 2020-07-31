@@ -9,24 +9,22 @@ const colors = [
   '#795548',
 ];
 
-const refs = {
-  startBtn: document.querySelector('button[data-action="start"]'),
-  stopBtn: document.querySelector('button[data-action="stop"]'),
-};
-
-let intervalId = null;
-let isActive = false;
+const startBtn = document.querySelector('button[data-action="start"]');
+const stopBtn = document.querySelector('button[data-action="stop"]');
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
+let intervalId = null;
+let isActive = false;
 
 const changeColor = () => {
   const randomColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
   document.body.style.backgroundColor = randomColor;
 };
 
-refs.startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
   if (isActive) {
     return;
   }
@@ -35,9 +33,13 @@ refs.startBtn.addEventListener('click', () => {
   intervalId = setInterval(() => {
     changeColor();
   }, 1000);
+  startBtn.setAttribute('disabled', true);
+  stopBtn.removeAttribute('disabled');
 });
 
-refs.stopBtn.addEventListener('click', () => {
+stopBtn.addEventListener('click', () => {
   clearInterval(intervalId);
   isActive = false;
+  stopBtn.setAttribute('disabled', true);
+  startBtn.removeAttribute('disabled');
 });
